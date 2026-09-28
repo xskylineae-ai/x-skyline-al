@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.org/schemas/ontology-object.schema.json",
+  "title": "ওন্টোলজি অবজেক্ট (Ontology Object) — Node উদাহরণ",
+  "type": "object",
+  "required": [
+    "id",
+    "bengali_label",
+    "english_label",
+    "definition",
+    "type"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "পরিচয়পত্র (ID) — ইউনিক URI বা UUID।"
+    },
+    "bengali_label": {
+      "type": "string",
+      "description": "বাঙলা লেবেল (primary)। উদাহরণ: 'সংযোগবিন্দু'."
+    },
+    "english_label": {
+      "type": "string",
+      "description": "ইংরেজি লেবেল। উদাহরণ: 'Node'."
+    },
+    "definition": {
+      "type": "string",
+      "description": "সংক্ষেপ সংজ্ঞা/বর্ণনা (বাঙলায়)।"
+    },
+    "type": {
+      "type": "string",
+      "description": "ধরন (Type) — উদাহরণ: 'গাঠনিক একক'."
+    },
+    "parent_concept": {
+      "type": "string",
+      "description": "অভিভাবক ধারণার ID (URI)।",
+      "nullable": true
+    },
+    "related_concepts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "সম্পর্কিত ধারণার ID গুচ্ছ (URI)।",
+      "nullable": true
+    },
+    "use_cases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ব্যবহারের ক্ষেত্রের তালিকা (বাঙলায়)।",
+      "nullable": true
+    },
+    "embedding_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ভেক্টর/এম্বেডিং ট্যাগসমূহ।",
+      "nullable": true
+    },
+    "context_rules": {
+      "type": "object",
+      "description": "প্রসঙ্গ নিয়মাবলী (কীভাবে লেবেল/প্রাসঙ্গিকতা নির্ধারিত হবে)।",
+      "nullable": true
+    },
+    "ai_interpretation_notes": {
+      "type": "string",
+      "description": "এআই ব্যাখ্যা নোট — প্রয়োগগত টিপস ও লক্ষণ।",
+      "nullable": true
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "পরম",
+        "উচ্চ",
+        "মাঝারি",
+        "নিম্ন",
+        "পরীক্ষামূলক"
+      ],
+      "description": "অগ্রাধিকার স্তর (Priority)।"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": [
+        "নিশ্চিত",
+        "সম্ভাব্য",
+        "অনুমানমূলক",
+        "অজানা"
+      ],
+      "description": "আত্মবিশ্বাসের স্তর (Confidence)।"
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "ধারণা",
+        "গবেষণা",
+        "আদি-প্রতিচ্ছবি",
+        "সক্রিয়",
+        "সম্প্রসারণ",
+        "আর্কাইভড"
+      ],
+      "description": "জীবনচক্রের অবস্থা (Lifecycle State)।"
+    }
+  },
+  "additionalProperties": false,
+  "example": {
+    "id": "urn:uuid:node-001",
+    "bengali_label": "সংযোগবিন্দু",
+    "english_label": "Node",
+    "definition": "নেটওয়ার্ক বা কসমিক জালের মৌলিক একক; প্রতিটি নোড একটি জীবন্ত উপাত্তের মিলনস্থল।",
+    "type": "গাঠনিক একক",
+    "parent_concept": "urn:uuid:system",
+    "related_concepts": [
+      "urn:uuid:network",
+      "urn:uuid:module"
+    ],
+    "use_cases": [
+      "জ্ঞান মানচিত্রকরণ",
+      "নেটওয়ার্ক বিশ্লেষণ"
+    ],
+    "embedding_tags": [
+      "graph",
+      "structure",
+      "memory"
+    ],
+    "context_rules": {
+      "preferred_label": "সংযোগবিন্দু",
+      "aliases": [
+        "মগজ-গ্রন্থি"
+      ]
+    },
+    "ai_interpretation_notes": "গ্রাফ ডাটাবেসে node হিসেবে স্টোর ও ভেক্টর সার্চে embedding_tags ব্যবহার করুন।",
+    "priority": "মাঝারি",
+    "confidence": "নিশ্চিত",
+    "lifecycle": "সক্রিয়"
+  }
+}

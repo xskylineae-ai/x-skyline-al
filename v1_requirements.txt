@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+sqlite3-bundle-binary
+python-dotenv
+faiss-cpu
+nltk
+whoosh
+requests
+fpdf
+matplotlib
